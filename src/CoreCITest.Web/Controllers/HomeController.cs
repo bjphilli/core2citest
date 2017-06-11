@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using dotnet.Models;
+using CoreCITest.Web.Models;
+using CoreCITest.Data;
 
-namespace dotnet.Controllers
+namespace CoreCITest.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -32,6 +33,13 @@ namespace dotnet.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Thing()
+        {
+            var thing = new Thing(1, "Blake");
+
+            return View(thing);
         }
     }
 }
