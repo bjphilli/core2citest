@@ -1,0 +1,11 @@
+/home/blake/code/dotnet/blog/bin/Debug/netcoreapp2.0/libe_sqlite3.so
+/home/blake/code/dotnet/blog/bin/Debug/netcoreapp2.0/dotnet.deps.json
+/home/blake/code/dotnet/blog/bin/Debug/netcoreapp2.0/dotnet.runtimeconfig.json
+/home/blake/code/dotnet/blog/bin/Debug/netcoreapp2.0/dotnet.runtimeconfig.dev.json
+/home/blake/code/dotnet/blog/bin/Debug/netcoreapp2.0/dotnet.dll
+/home/blake/code/dotnet/blog/bin/Debug/netcoreapp2.0/dotnet.pdb
+/home/blake/code/dotnet/blog/obj/Debug/netcoreapp2.0/dotnet.csproj.CoreCompileInputs.cache
+/home/blake/code/dotnet/blog/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/home/blake/code/dotnet/blog/obj/Debug/netcoreapp2.0/dotnet.AssemblyInfo.cs
+/home/blake/code/dotnet/blog/obj/Debug/netcoreapp2.0/dotnet.dll
+/home/blake/code/dotnet/blog/obj/Debug/netcoreapp2.0/dotnet.pdb
