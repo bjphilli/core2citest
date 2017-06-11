@@ -1,6 +1,6 @@
 using System;
 
-namespace dotnet.Models
+namespace CoreCITest.Web.Models
 {
     public class ErrorViewModel
     {
