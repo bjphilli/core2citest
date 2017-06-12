@@ -12,11 +12,5 @@ namespace CoreCITest.Data.Test
 
             Assert.Equal("1-hello", fullName);
         }
-
-        [Fact]
-        public void Thing_ThisWillFail()
-        {
-            Assert.Equal(true, false);
-        }
     }
 }
