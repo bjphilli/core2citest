@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CoreCITest.Web.Models;
 using CoreCITest.Data;
 
 namespace CoreCITest.Web.Controllers
