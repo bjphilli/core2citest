@@ -11,4 +11,4 @@ jobs:
 
       - run:
           name: XUnit Tests
-          command: dotnet build && dotnet test/CoreCITest.Data.Test/CoreCITest.Data.Test.csproj
+          command: dotnet build && dotnet test test/CoreCITest.Data.Test/CoreCITest.Data.Test.csproj
