@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - checkout
-      - dotnet build
+      
       - run:
           name: XUnit Tests
-          command: dotnet test MyProject.Test
+          command: dotnet build && dotnet test MyProject.Test
