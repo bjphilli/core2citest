@@ -3,12 +3,12 @@ jobs:
   build:
     docker:
       - image: microsoft/dotnet:2-sdk
-      
+
     working_directory: ~/repo
 
     steps:
       - checkout
-      
+
       - run:
           name: XUnit Tests
-          command: dotnet build && dotnet test MyProject.Test
+          command: dotnet build && dotnet test/CoreCITest.Data.Test/CoreCITest.Data.Test.csproj
