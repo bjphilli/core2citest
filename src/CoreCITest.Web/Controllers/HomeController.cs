@@ -26,9 +26,11 @@ namespace CoreCITest.Web.Controllers
 
         public IActionResult DbTest()
         {
-            var hello = _context.Hellos.Single(d => d.Id == 1);
+            var hello = _context.Hellos
+                .Include(d => d.Posts)
+                .SingleOrDefault(d => d.Id == 1);
 
-            return View(hello.Id);
+            return View(hello?.Id ?? -5);
         }
     }
 }
