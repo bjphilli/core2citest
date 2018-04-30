@@ -4,8 +4,6 @@ namespace CoreCITest.Data
     {
         public long Id { get; set; }
 
-        public long HelloId { get; set; }
-
         public string Text { get; set; }
     }
 }

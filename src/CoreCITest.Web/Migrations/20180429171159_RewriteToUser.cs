@@ -5,21 +5,27 @@ using System.Collections.Generic;
 
 namespace CoreCITest.Web.Migrations
 {
-    public partial class Posts : Migration
+    public partial class RewriteToUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Hello",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    BillingCity = table.Column<string>(nullable: true),
+                    BillingCountry = table.Column<string>(nullable: true),
+                    BillingPostalCode = table.Column<string>(nullable: true),
+                    BillingState = table.Column<string>(nullable: true),
+                    BillingStreet1 = table.Column<string>(nullable: true),
+                    BillingStreet2 = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hello", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -29,23 +35,24 @@ namespace CoreCITest.Web.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     HelloId = table.Column<long>(nullable: false),
-                    Text = table.Column<string>(nullable: true)
+                    Text = table.Column<string>(nullable: true),
+                    UserId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Post", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Post_Hello_HelloId",
-                        column: x => x.HelloId,
-                        principalTable: "Hello",
+                        name: "FK_Post_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Post_HelloId",
+                name: "IX_Post_UserId",
                 table: "Post",
-                column: "HelloId");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -54,7 +61,7 @@ namespace CoreCITest.Web.Migrations
                 name: "Post");
 
             migrationBuilder.DropTable(
-                name: "Hello");
+                name: "User");
         }
     }
 }

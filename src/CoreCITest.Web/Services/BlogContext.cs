@@ -12,11 +12,12 @@ namespace CoreCITest.Web.Services
         {
         }
 
-        public DbSet<Hello> Hellos { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.RemovePluralizingTableNameConvention();
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 

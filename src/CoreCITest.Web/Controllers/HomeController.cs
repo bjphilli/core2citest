@@ -26,7 +26,7 @@ namespace CoreCITest.Web.Controllers
 
         public IActionResult DbTest()
         {
-            var hello = _context.Hellos
+            var hello = _context.Users
                 .Include(d => d.Posts)
                 .SingleOrDefault(d => d.Id == 1);
 
