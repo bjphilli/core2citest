@@ -5,14 +5,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CoreCITest.Web.Services
 {
-    public class BlogContext : DbContext
+    public class CoreContext : DbContext
     {
-        public BlogContext(DbContextOptions<BlogContext> options)
+        public CoreContext(DbContextOptions<CoreContext> options)
           : base(options)
         {
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

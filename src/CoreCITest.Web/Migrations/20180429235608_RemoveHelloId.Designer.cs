@@ -10,7 +10,7 @@ using System;
 
 namespace CoreCITest.Web.Migrations
 {
-    [DbContext(typeof(BlogContext))]
+    [DbContext(typeof(CoreContext))]
     [Migration("20180429235608_RemoveHelloId")]
     partial class RemoveHelloId
     {
