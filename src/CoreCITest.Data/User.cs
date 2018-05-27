@@ -7,6 +7,6 @@ namespace CoreCITest.Data
         public long Id { get; set; }
         public string Name { get; set; }
         public Address BillingAddress { get; set; }
-        public IReadOnlyList<Post> Posts { get; set; }
+        public IList<Post> Posts { get; set; }
     }
 }

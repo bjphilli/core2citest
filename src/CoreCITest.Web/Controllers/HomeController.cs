@@ -32,5 +32,18 @@ namespace CoreCITest.Web.Controllers
 
             return View(hello?.Id ?? -5);
         }
+
+        public IActionResult CreatePosts()
+        {
+            var user = _context.Users
+                .Include(d => d.Posts)
+                .Single(d => d.Id == 1);
+
+            user.Posts.Remove(user.Posts.First());
+
+            _context.SaveChanges();
+
+            return Ok(user);
+        }
     }
 }
