@@ -10,15 +10,15 @@ using System;
 
 namespace CoreCITest.Web.Migrations
 {
-    [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CoreContext))]
+    partial class CoreContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.0.2-rtm-10011");
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026");
 
             modelBuilder.Entity("CoreCITest.Data.Post", b =>
                 {
@@ -27,7 +27,7 @@ namespace CoreCITest.Web.Migrations
 
                     b.Property<string>("Text");
 
-                    b.Property<long?>("UserId");
+                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -38,11 +38,39 @@ namespace CoreCITest.Web.Migrations
 
             modelBuilder.Entity("CoreCITest.Data.User", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("ConcurrencyStamp");
+
+                    b.Property<string>("Email");
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
 
                     b.Property<string>("Name")
                         .IsRequired();
+
+                    b.Property<string>("NormalizedEmail");
+
+                    b.Property<string>("NormalizedUserName");
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName");
 
                     b.HasKey("Id");
 
@@ -60,7 +88,7 @@ namespace CoreCITest.Web.Migrations
                 {
                     b.OwnsOne("CoreCITest.Data.Address", "BillingAddress", b1 =>
                         {
-                            b1.Property<long>("UserId");
+                            b1.Property<string>("UserId");
 
                             b1.Property<string>("City")
                                 .HasColumnName("BillingCity");

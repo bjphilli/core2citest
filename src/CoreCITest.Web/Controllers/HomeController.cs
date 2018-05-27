@@ -12,11 +12,11 @@ namespace CoreCITest.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly BlogContext _context;
+        private readonly CoreContext _db;
 
-        public HomeController(BlogContext context)
+        public HomeController(CoreContext db)
         {
-            _context = context;
+            _db = db;
         }
 
         public IActionResult Index()
@@ -26,22 +26,22 @@ namespace CoreCITest.Web.Controllers
 
         public IActionResult DbTest()
         {
-            var hello = _context.Users
-                .Include(d => d.Posts)
-                .SingleOrDefault(d => d.Id == 1);
+            var hello = _db.Users
+                // .Include(d => d.Posts)
+                .SingleOrDefault(d => d.Id == "1");
 
-            return View(hello?.Id ?? -5);
+            return View();
         }
 
         public IActionResult CreatePosts()
         {
-            var user = _context.Users
-                .Include(d => d.Posts)
-                .Single(d => d.Id == 1);
+            var user = _db.Users
+                // .Include(d => d.Posts)
+                .Single(d => d.Id == "1");
 
-            user.Posts.Remove(user.Posts.First());
+            // user.Posts.Remove(user.Posts.First());
 
-            _context.SaveChanges();
+            _db.SaveChanges();
 
             return Ok(user);
         }
