@@ -1,12 +1,12 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
 namespace CoreCITest.Data
 {
-    public class User
+    public class User : IdentityUser
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public Address BillingAddress { get; set; }
-        public IList<Post> Posts { get; set; }
+        // public string Name { get; set; }
+        // public Address BillingAddress { get; set; }
+        // public IList<Post> Posts { get; set; }
     }
 }
