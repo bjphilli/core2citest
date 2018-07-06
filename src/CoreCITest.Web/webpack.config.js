@@ -2,10 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './scripts/index.ts',
+    entry: {
+        build: './scripts/index.ts'
+    },
     output: {
         path: path.resolve(__dirname, './wwwroot'),
-        publicPath: '/wwwroot',
+        publicPath: '/wwwroot/',
         filename: 'build.js'
     },
     module: {

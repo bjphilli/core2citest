@@ -1,5 +1,5 @@
 import Vue from "vue";
-import HelloComponent from "./Hello.vue"
+import HelloComponent from "./hello.vue"
 
 let v = new Vue({
     el: "#app",
