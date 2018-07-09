@@ -16,6 +16,18 @@ namespace CoreCITest.Web
             _context = context;
         }
 
+        [Route("{userid:int}")]
+        [HttpGet]
+        public IActionResult GetPosts(int userId)
+        {
+            var user = _context
+                .Users
+                .Include(u => u.Posts)
+                .Single(u => u.Id == userId);
+
+            return Ok(user);
+        }
+
         [Route("{userId:int}")]
         [HttpPost]
         public IActionResult AddPost(int userId, [FromBody]Post post)

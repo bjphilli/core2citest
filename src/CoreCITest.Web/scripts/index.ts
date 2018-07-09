@@ -1,18 +1,23 @@
 import Vue from "vue";
-import HelloComponent from "./hello.vue"
+import AppBody from "./appbody.vue"
+import TopNav from "./topnav.vue";
 
 let v = new Vue({
     el: "#app",
     template: `
     <div>
-        Name: <input v-model="name" type="text">
-        <hello-component :name="name" :initialEnthusiasm="5" />
+        <top-nav></top-nav/>
+        <app-body
+            name="Blake"
+            initialEnthusiasm=3>
+        </app-body>
     </div>
     `,
     data: {
         name: "World"
     },
     components: {
-        HelloComponent
+        AppBody,
+        TopNav
     }
 });
