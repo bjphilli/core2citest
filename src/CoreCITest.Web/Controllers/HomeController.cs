@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CoreCITest.Data;
 using CoreCITest.Web.Services;
+using Newtonsoft.Json;
 
 namespace CoreCITest.Web.Controllers
 {
@@ -31,6 +32,28 @@ namespace CoreCITest.Web.Controllers
                 .SingleOrDefault(d => d.Id == 1);
 
             return View(hello?.Id ?? -5);
+        }
+
+        [Route("/api/users")]
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            List<User> allUsers = _context.Users
+                .Include(u => u.Posts)
+                .ToList();
+
+            return Ok(allUsers);
+        }
+
+        [Route("/api/users")]
+        [HttpPost]
+        public IActionResult Create([FromBody]User user)
+        {
+            _context.Users.Add(user);
+
+            _context.SaveChanges();
+
+            return Ok(user.Id);
         }
     }
 }
